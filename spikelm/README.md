@@ -1,6 +1,6 @@
 # SpikeLM Fine-Tuning Bundle
 
-This folder contains a minimal SpikeLM fine-tuning bundle derived from the original SpikeBERT experiment. It keeps only the code, tokenizer/config files, and environment metadata needed to run `finetune.py`.
+This folder contains a SpikeLM fine-tuning bundle. It keeps only the code, tokenizer/config files, and environment metadata needed to run `finetune.py`.
 
 The large pretrained checkpoint is not tracked in git. Download it from the GitHub Release asset before training.
 
@@ -34,12 +34,6 @@ spikelm/base_spike/step_100000/pytorch_model.bin
 ```
 
 ## Requirements
-
-This bundle was verified with the following environment:
-
-```bash
-/data/users/zhouzj/miniconda3/envs/spikelm
-```
 
 Main package versions from that environment:
 
@@ -113,29 +107,3 @@ python finetune.py \
 `HF_ENDPOINT=https://hf-mirror.com` is optional, but useful when GLUE datasets or metrics need to be downloaded through the Hugging Face mirror.
 
 Keep the trailing slash in `--output_dir`. The script writes the best checkpoint to `args.output_dir + best/`, so `./res/cola/binary/` produces `./res/cola/binary/best/`.
-
-## Run With Local CSV or JSON Data
-
-You can train with local files instead of GLUE. The files must include a `label` column and one or two text columns.
-
-```bash
-cd spikelm/spike_ft-10w
-
-CUDA_VISIBLE_DEVICES=0 \
-python finetune.py \
-  --model_name_or_path ../bert-base-uncased \
-  --train_file /path/to/train.csv \
-  --validation_file /path/to/validation.csv \
-  --max_length 128 \
-  --per_device_train_batch_size 16 \
-  --per_device_eval_batch_size 16 \
-  --learning_rate 2e-5 \
-  --num_train_epochs 10 \
-  --output_dir ./res/custom/run1/ \
-  --seed 41 \
-  --lr_scheduler_type constant
-```
-
-## Verified Smoke Test
-
-Before packaging, this bundle was verified on GPU with the original `spikelm` conda environment. The smoke test successfully loaded the local tokenizer/config, loaded `base_spike/step_100000/pytorch_model.bin`, completed one training step, ran evaluation, and saved model outputs.
