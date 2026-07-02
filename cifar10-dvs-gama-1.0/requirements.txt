@@ -1,0 +1,9 @@
+timm==0.9.12
+spikingjelly==0.0.0.0.14
+cupy-cuda12x==14.1.1
+tensorboard
+matplotlib
+numpy
+scipy
+torch
+torchvision

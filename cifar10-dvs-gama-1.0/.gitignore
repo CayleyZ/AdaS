@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+
+# Runtime logs and TensorBoard events
+logs/
+smoke_logs*/
+events.out.tfevents.*
+*.log
+*.out
+nohup.out
+
+# Checkpoints and large model artifacts
+*.pth
+*.pt
+*.bin
+*.safetensors
