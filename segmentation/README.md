@@ -24,6 +24,28 @@ pip install -r requirements.txt
 
 The local `mmseg/` package in this folder should be preferred at runtime, so run commands with `PYTHONPATH=.` from the `segmentation/` directory.
 
+## Pretrained Checkpoint
+
+The configs expect the SDT V3 19M pretrained checkpoint at:
+
+```text
+pretrained/V3_19.0M_1x4.pth
+```
+
+Download it from the GitHub release before training:
+
+```bash
+mkdir -p pretrained
+wget -O pretrained/V3_19.0M_1x4.pth https://github.com/CayleyZ/AdaS/releases/download/segmentation-sdtv3-19m-pretrained/V3_19.0M_1x4.pth
+sha256sum pretrained/V3_19.0M_1x4.pth
+```
+
+Expected SHA256:
+
+```text
+72adec1cabce8f9aacb4f9f16deaf37ae28c22e72d815d19e6c6fea0ec9b05a7
+```
+
 ## Run
 
 ```bash

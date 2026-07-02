@@ -10,7 +10,7 @@ _base_ = [
 norm_cfg = dict(type='SyncBN', requires_grad=True)
 crop_size = (512, 512)
 data_preprocessor = dict(size=crop_size)
-checkpoint_file = '/data/users/zhangjy/projects/sdt-v3-main/SDT_V3/Detection/configs/pretrained/V3_19.0M_1x4.pth'
+checkpoint_file = 'pretrained/V3_19.0M_1x4.pth'
 
 model = dict(
     data_preprocessor=data_preprocessor,
