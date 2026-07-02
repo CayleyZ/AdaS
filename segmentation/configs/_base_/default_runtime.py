@@ -11,7 +11,12 @@ log_processor = dict(by_epoch=False)
 log_level = 'INFO'
 load_from = None
 resume = False
-custom_imports = dict(imports=['mmseg.engine.hooks.resetmodel_hook'], allow_failed_imports=False)
+custom_imports = dict(
+    imports=[
+        'mmseg.engine.hooks.resetmodel_hook',
+        'mmseg.engine.optimizers.adas',
+    ],
+    allow_failed_imports=False)
 custom_hooks = [
     dict(type='ResetModelHook')]
 

@@ -52,7 +52,7 @@ optim_wrapper = dict(
     _delete_=True,
     type='OptimWrapper',
     optimizer=dict(
-        type='HybridAdamW', lr=0.00075, gamma=1.0, betas=(0.9, 0.999), weight_decay=0.005),
+        type='AdaS', lr=0.00075, gamma=1.0, betas=(0.9, 0.999), weight_decay=0.005),
     paramwise_cfg=dict(
         custom_keys={
             'head': dict(lr_mult=2.)}

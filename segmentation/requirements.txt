@@ -1,7 +1,7 @@
 torch==2.4.1+cu124
 torchvision==0.19.1+cu124
 mmengine==0.10.6
-mmcv==2.2.0
+mmcv-full==1.7.2
 mmsegmentation==0.30.0
 spikingjelly==0.0.0.0.14
 timm==0.4.12

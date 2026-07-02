@@ -15,7 +15,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Train a segmentor')
     parser.add_argument('config', help='train config file path')
     parser.add_argument('--work-dir', 
-                        # default='/data/users/zhouzj/Spike-Driven-Transformer-V3/SDT_V3/Segmentation/tools/work_dirs/fpn_sdtv3_512x512_19M_ade20k_hybrid', 
+                        # default='/data/users/zhouzj/Spike-Driven-Transformer-V3/SDT_V3/Segmentation/tools/work_dirs/fpn_sdtv3_512x512_19M_ade20k_adas',
                         help='the dir to save logs and models')
     parser.add_argument(
         '--resume',
