@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.mim/
+
+work_dirs/
+logs/
+*.log
+*.out
+events.out.tfevents.*
+
+*.pth
+*.pt
+*.bin
+*.safetensors
