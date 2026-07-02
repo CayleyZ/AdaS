@@ -80,7 +80,7 @@ def parse_args():
     #                     help='Use Adam')
 
     # Optimizer Parameters
-    parser.add_argument('--opt', default='hybridadamw', type=str, metavar="OPTIMIZER", help='Optimizer (default: "adamw")')
+    parser.add_argument('--opt', default='adas', type=str, metavar="OPTIMIZER", help='Optimizer (default: "adamw")')
     parser.add_argument('--opt-eps', default=1e-8, type=float, metavar='EPSILON', help='Optimizer Epsilon (default: 1e-8)')
     parser.add_argument('--opt-betas', default=None, type=float, metavar='BETA', help='Optimizer Betas')
     parser.add_argument('--weight-decay', default=0.06, type=float, help='weight decay')
@@ -331,8 +331,8 @@ def main(args):
 
     if args.opt == 'adamw':
         output_dir += '_adamw'
-    elif args.opt == 'hybridadamw':
-        output_dir += '_hybridadamw'
+    elif args.opt == 'adas':
+        output_dir += '_adas'
     else:
         output_dir += '_sgd'
 

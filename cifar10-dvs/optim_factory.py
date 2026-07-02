@@ -24,7 +24,7 @@ from timm.optim.nvnovograd import NvNovoGrad
 from timm.optim.radam import RAdam
 from timm.optim.rmsprop_tf import RMSpropTF
 from timm.optim.sgdp import SGDP
-from optimizer import HybridAdamW
+from optimizer import AdaS
 
 try:
     from apex.optimizers import FusedNovoGrad, FusedAdam, FusedLAMB, FusedSGD
@@ -308,8 +308,8 @@ def create_optimizer_v2(
         optimizer = optim.RMSprop(parameters, alpha=0.9, momentum=momentum, **opt_args)
     elif opt_lower == 'rmsproptf':
         optimizer = RMSpropTF(parameters, alpha=0.9, momentum=momentum, **opt_args)
-    elif opt_lower == 'hybridadamw':
-        optimizer = HybridAdamW(parameters, **opt_args)
+    elif opt_lower == 'adas':
+        optimizer = AdaS(parameters, **opt_args)
 
     # second order
     elif opt_lower == 'adahessian':

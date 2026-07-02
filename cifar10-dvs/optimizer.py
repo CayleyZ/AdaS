@@ -2,7 +2,7 @@ import math
 import torch
 from torch.optim.optimizer import Optimizer
 
-class HybridAdamW(Optimizer):
+class AdaS(Optimizer):
     """
     混合 SGD 和 AdamW 下降方向的优化器
     
@@ -63,7 +63,7 @@ class HybridAdamW(Optimizer):
                 
                 grad = p.grad.data
                 if grad.is_sparse:
-                    raise RuntimeError("HybridAdamW does not support sparse gradients")
+                    raise RuntimeError("AdaS does not support sparse gradients")
 
                 state = self.state[p]
 
@@ -120,11 +120,11 @@ class HybridAdamW(Optimizer):
     
 class LinearGammaScheduler:
     """
-    Linear scheduler for the gamma parameter in HybridAdamW optimizer.
+    Linear scheduler for the gamma parameter in AdaS optimizer.
     Linearly decreases gamma from start_gamma to end_gamma over total_epochs.
 
     Args:
-        optimizer: 目标优化器 (HybridAdamW)
+        optimizer: 目标优化器 (AdaS)
         start_gamma: 初始gamma值
         end_gamma: 最终gamma值
         total_epochs: 总训练轮数
