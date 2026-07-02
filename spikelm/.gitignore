@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+
+# Large checkpoint distributed through GitHub Releases.
+base_spike/step_100000/pytorch_model.bin
+
+# Training outputs and temporary smoke-test data.
+spike_ft-10w/res/
+spike_ft-10w/smoke_data/
+spike_ft-10w/smoke_output/
