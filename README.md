@@ -4,20 +4,6 @@ Official implementation for **"AdaS: Adaptive Gradient Descent for Spiking Trans
 
 AdaS is an optimizer designed for Spiking Transformers. The paper identifies an excessive parameter-update noise problem caused by the combination of surrogate-gradient learning and adaptive optimization. AdaS mitigates this issue by adaptively balancing the adaptive update direction with a momentum-based gradient update direction, keeping the update noise at a useful level rather than simply removing it.
 
-This repository provides compact, runnable experiment bundles for the main released code paths used in the paper.
-
-## Overview
-
-Spiking Transformers combine Transformer-style representation learning with the event-driven efficiency of spiking neural networks. However, their non-differentiable spike functions require surrogate gradients during training, which can introduce additional update noise. When this noise is combined with the noise already present in adaptive optimizers such as AdamW, training can become less stable and the final performance can degrade.
-
-AdaS addresses this by updating parameters with a weighted combination of two components:
-
-```text
-adaptive update component + momentum-based gradient update component
-```
-
-The balancing coefficient is computed adaptively from the update statistics and a target noise level. In practice, AdaS can be integrated into AdamW-style optimizers without adding extra optimizer-state memory, because it reuses the first-order momentum already maintained by the adaptive optimizer.
-
 ## Repository Structure
 
 ```text
@@ -123,7 +109,7 @@ and the segmentation experiment provides:
 segmentation/mmseg/engine/optimizers/adas.py
 ```
 
-The main hyperparameter introduced by AdaS is `gamma`, the target update-noise level. The released experiments keep the values used for the corresponding paper results inside their training scripts or config files.
+The main hyperparameter introduced by AdaS is `gamma`, the target update-noise level.
 
 ## Checkpoints
 
@@ -137,10 +123,12 @@ Large pretrained weights are not tracked by git. They are provided through GitHu
 If this repository is useful for your research, please cite:
 
 ```text
-AdaS: Adaptive Gradient Descent for Spiking Transformers
-Zijian Zhou, Honglin Cao, Ammar Belatreche, Wenjie Wei, Yimeng Shan,
-Yu Liang, Yu Yang, Shuai Wang, Yalan Ye, Malu Zhang, Yang Yang, Haizhou Li.
-Proceedings of the 43rd International Conference on Machine Learning, 2026.
+@inproceedings{zhouadas,
+  title={AdaS: Adaptive Gradient Descent for Spiking Transformers},
+  author={Zhou, Zijian and Cao, Honglin and Belatreche, Ammar and Wei, Wenjie and Shan, Yimeng and Liang, Yu and Yang, Yu and Wang, Shuai and Ye, Yalan and Zhang, Malu and others},
+  booktitle={Forty-third International Conference on Machine Learning},
+  year={2026}
+}
 ```
 
 ## Acknowledgements
